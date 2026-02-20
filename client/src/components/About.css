@@ -191,7 +191,7 @@
   .about-grid {
     grid-template-columns: 1fr 1fr;
   }
-  
+
   .story-card {
     grid-column: 1 / 3;
   }
@@ -201,7 +201,7 @@
   .about-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .story-card {
     grid-column: 1;
   }

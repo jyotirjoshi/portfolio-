@@ -65,31 +65,11 @@ const Hero = () => {
               the Bhagavad Gita, I merge academic excellence with purposeful action.
             </p>
 
-            {/* Key Achievements - Minimal Cards */}
-            <div className="achievement-highlights">
-              <div className="highlight-card">
-                <div className="highlight-icon">🏆</div>
-                <div className="highlight-content">
-                  <h3 className="highlight-title">IRIS Gold Medal</h3>
-                  <p className="highlight-subtitle">National Science Fair Winner</p>
-                </div>
-              </div>
-
-              <div className="highlight-card">
-                <div className="highlight-icon">🎯</div>
-                <div className="highlight-content">
-                  <h3 className="highlight-title">AIME Qualified</h3>
-                  <p className="highlight-subtitle">AMC 10A: 120 | 10B: 117</p>
-                </div>
-              </div>
-
-              <div className="highlight-card">
-                <div className="highlight-icon">📄</div>
-                <div className="highlight-content">
-                  <h3 className="highlight-title">Published Research</h3>
-                  <p className="highlight-subtitle">Scopus-Indexed Journal</p>
-                </div>
-              </div>
+            {/* Role Tags */}
+            <div className="hero-role-tags">
+              <span className="role-tag">Student Researcher</span>
+              <span className="role-tag">Youth Leader</span>
+              <span className="role-tag">Scholar</span>
             </div>
 
             {/* CTA Buttons */}
