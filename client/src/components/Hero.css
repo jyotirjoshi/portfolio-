@@ -13,7 +13,7 @@
   --color-bg: #FAFAFA;
   --color-white: #FFFFFF;
   --color-light-gray: #ECF0F1;
-  --color-success: #27AE60;
+  --color-success: #27AE60 ;
 
   /* Shadows */
   --shadow-sm: 0 2px 8px rgba(15, 37, 87, 0.08);
