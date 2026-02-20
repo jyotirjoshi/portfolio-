@@ -458,7 +458,7 @@
 /* Elegant Badge */
 .image-badge {
   position: absolute;
-  top: 20px;
+  bottom: 20px;
   right: 20px;
   display: flex;
   align-items: center;
@@ -530,6 +530,11 @@
   width: 1px;
   height: 40px;
   background: var(--color-light-gray);
+}
+
+/* Stats row (hidden on desktop, shown on mobile) */
+.stats-row {
+  display: none;
 }
 
 /* Floating Stats */
@@ -723,6 +728,21 @@
     margin: 15px 10px;
     transform: none !important;
   }
+
+  /* Show floating stats as a centered row below the image */
+  .hero-image-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .stats-row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 16px;
+    width: 100%;
+  }
 }
 
 @media (max-width: 768px) {
@@ -746,7 +766,6 @@
     flex-direction: column;
     width: 100%;
     max-width: 400px;
-    /* Constrain button width */
     margin-left: auto;
     margin-right: auto;
   }
@@ -761,14 +780,50 @@
     justify-content: center;
   }
 
+  /* On mobile, move info overlay below the image instead of on top */
+  .image-wrapper {
+    position: relative;
+  }
+
   .info-card-overlay {
-    flex-direction: column;
-    gap: 15px;
+    position: static;
+    flex-direction: row;
+    gap: 12px;
+    border-radius: 12px;
+    margin-top: 12px;
+    padding: 14px 16px;
+    justify-content: center;
   }
 
   .info-divider {
+    width: 1px;
+    height: 36px;
+  }
+
+  /* Floating stats: hide absolute positioning, show in a row below image card */
+  .floating-stat {
+    position: static !important;
+    animation: none !important;
+    transform: none !important;
+    flex: 1;
+    min-width: 100px;
+    max-width: 140px;
+    margin: 0;
+  }
+
+  .hero-image-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Stats row shown below image on mobile */
+  .stats-row {
+    display: flex !important;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 0;
     width: 100%;
-    height: 1px;
   }
 }
 
@@ -781,13 +836,11 @@
 
   .image-card-professional {
     max-width: 320px;
-    /* Perfect mobile width */
     width: 90%;
   }
 
   .image-wrapper {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-    /* Softer shadow for mobile */
   }
 
   .highlight-card {
@@ -799,15 +852,33 @@
     display: none;
   }
 
-  /* Keep frame hidden on very small screens to avoid overflow, or optional */
   .image-frame,
   .frame-corner {
-    display: block;
-    /* Let's try showing it but smaller, or keep hidden if it breaks. keeping hidden is safer */
     display: none;
   }
 
   .hero-actions {
     align-items: center;
+  }
+
+  /* Even smaller: stack info card items vertically */
+  .info-card-overlay {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .info-divider {
+    width: 100%;
+    height: 1px;
+  }
+
+  /* Stats take full row but shrink a bit */
+  .floating-stat {
+    min-width: 80px;
+  }
+
+  .stat-number {
+    font-size: 1.4rem;
   }
 }

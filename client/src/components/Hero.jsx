@@ -174,13 +174,15 @@ const Hero = () => {
             </div>
 
             {/* Floating Stats */}
-            <div className="floating-stat stat-1">
-              <div className="stat-number">12+</div>
-              <div className="stat-label">Awards</div>
-            </div>
-            <div className="floating-stat stat-2">
-              <div className="stat-number">200+</div>
-              <div className="stat-label">Leaders Met</div>
+            <div className="stats-row">
+              <div className="floating-stat stat-1">
+                <div className="stat-number">12+</div>
+                <div className="stat-label">Awards</div>
+              </div>
+              <div className="floating-stat stat-2">
+                <div className="stat-number">200+</div>
+                <div className="stat-label">Leaders Met</div>
+              </div>
             </div>
           </div>
         </div>

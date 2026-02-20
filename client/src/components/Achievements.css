@@ -153,16 +153,16 @@
   .achievements-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .category-filters {
     gap: 10px;
   }
-  
+
   .filter-btn {
     padding: 10px 20px;
     font-size: 0.9rem;
   }
-  
+
   .achievement-image-wrapper {
     height: 200px;
   }
