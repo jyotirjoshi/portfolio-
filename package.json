@@ -1,0 +1,9 @@
+{
+    "name": "portfolio",
+    "version": "1.0.0",
+    "description": "Portfolio Root",
+    "scripts": {
+        "install": "cd client && npm install",
+        "build": "cd client && npm run build"
+    }
+}
