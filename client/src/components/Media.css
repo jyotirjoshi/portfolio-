@@ -1,49 +1,422 @@
+/* ═══════════════════════════════════════════════════════
+   MEDIA SECTION – Video-First Auto-Scroll Carousel
+   ═══════════════════════════════════════════════════════ */
+
 .media-professional {
   padding: 100px 20px;
   background: var(--color-white);
 }
 
-.media-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 30px;
+/* ── Slideshow Container ─────────────────────────────── */
+.media-slideshow {
+  position: relative;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto 30px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.18);
 }
 
-.media-card {
-  text-align: center;
+/* ── Slide Canvas ────────────────────────────────────── */
+.media-slide-canvas {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  max-height: 560px;
+  background: #0a0a0a;
+  overflow: hidden;
 }
 
-.media-icon {
-  font-size: 3rem;
-  margin-bottom: 15px;
+.media-slide-media {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
-.media-outlet {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--color-primary);
-  margin: 0 0 10px;
+/* ── Fade Transitions ────────────────────────────────── */
+.media-slide-canvas.fade-in {
+  animation: mediaFadeIn 0.35s ease forwards;
 }
 
-.media-title {
-  font-size: 1rem;
-  color: var(--color-text);
-  margin: 0 0 10px;
+.media-slide-canvas.fade-out {
+  animation: mediaFadeOut 0.35s ease forwards;
 }
 
-.media-date {
-  font-size: 0.85rem;
-  color: var(--color-text-light);
-}
+@keyframes mediaFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(1.03);
+  }
 
-@media (max-width: 1024px) {
-  .media-grid {
-    grid-template-columns: repeat(2, 1fr);
+  to {
+    opacity: 1;
+    transform: scale(1);
   }
 }
 
+@keyframes mediaFadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+/* ── Bottom Caption Overlay ──────────────────────────── */
+.media-slide-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 40px 30px 24px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.78) 0%, transparent 100%);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  pointer-events: none;
+}
+
+.media-slide-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.media-slide-outlet {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--color-accent, #d4af37);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.media-slide-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+  line-height: 1.3;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.media-slide-date {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* Slide counter (top-right overlay) */
+.media-slide-counter {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.65);
+  font-weight: 600;
+  pointer-events: none;
+  position: absolute;
+  top: 16px;
+  right: 20px;
+}
+
+.media-counter-current {
+  color: #fff;
+  font-size: 1.1rem;
+}
+
+/* ── Hidden utility ──────────────────────────────────── */
+.media-hidden {
+  display: none !important;
+}
+
+/* ── Video Controls Bar ──────────────────────────────── */
+.media-video-controls {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 15;
+}
+
+/* Playing / Paused badge */
+.media-video-badge {
+  background: rgba(220, 50, 50, 0.88);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 5px 13px;
+  border-radius: 50px;
+  letter-spacing: 0.5px;
+  backdrop-filter: blur(8px);
+  animation: pulseBadge 1.8s ease-in-out infinite;
+  border: none;
+  white-space: nowrap;
+}
+
+.media-video-badge.paused {
+  background: rgba(80, 80, 80, 0.88);
+  animation: none;
+}
+
+@keyframes pulseBadge {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.65;
+  }
+}
+
+/* ── Mute / Unmute Button ────────────────────────────── */
+.media-audio-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(10px);
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 5px 14px 5px 10px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+}
+
+.media-audio-btn:hover {
+  background: rgba(255, 255, 255, 0.32);
+  transform: scale(1.05);
+}
+
+.media-audio-btn.unmuted {
+  background: rgba(212, 175, 55, 0.25);
+  border-color: rgba(212, 175, 55, 0.6);
+  color: #ffe97a;
+}
+
+.audio-icon {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.audio-label {
+  font-size: 0.72rem;
+}
+
+/* ── Auto-Progress Bar (photo slides) ───────────────── */
+.media-progress-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 4px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--color-accent, #d4af37), var(--color-secondary, #3b82f6));
+  animation: progressAnim 10s linear forwards;
+  border-radius: 0 4px 4px 0;
+}
+
+@keyframes progressAnim {
+  from {
+    width: 0%;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+/* ── Arrow Buttons ───────────────────────────────────── */
+.media-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  font-size: 1.8rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, transform 0.2s ease;
+  z-index: 10;
+}
+
+.media-arrow:hover {
+  background: rgba(255, 255, 255, 0.35);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.media-arrow-left {
+  left: 16px;
+}
+
+.media-arrow-right {
+  right: 16px;
+}
+
+/* ── Dot Indicators ──────────────────────────────────── */
+.media-dots {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+
+.media-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.media-dot.active {
+  background: #fff;
+  border-color: #fff;
+  transform: scale(1.3);
+}
+
+.media-dot.video-dot {
+  border-color: #e74c3c;
+}
+
+.media-dot.video-dot.active {
+  background: #e74c3c;
+  border-color: #e74c3c;
+}
+
+/* ── Thumbnail Strip ─────────────────────────────────── */
+.media-thumbnails {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.media-thumb {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  background: var(--color-white, #fff);
+  border: 2px solid var(--color-light-gray, #e2e8f0);
+  border-radius: 12px;
+  padding: 8px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  width: 130px;
+  overflow: hidden;
+}
+
+.media-thumb img {
+  width: 100%;
+  height: 72px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.media-thumb-video-icon {
+  width: 100%;
+  height: 72px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #1a1a2e, #16213e);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  color: #e74c3c;
+}
+
+.media-thumb-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--color-text, #333);
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+}
+
+.media-thumb.active,
+.media-thumb:hover {
+  border-color: var(--color-accent, #d4af37);
+  box-shadow: 0 4px 16px rgba(212, 175, 55, 0.2);
+  transform: translateY(-3px);
+}
+
+/* ── Responsive ──────────────────────────────────────── */
 @media (max-width: 768px) {
-  .media-grid {
-    grid-template-columns: 1fr;
+  .media-slide-canvas {
+    aspect-ratio: 4 / 3;
+  }
+
+  .media-slide-title {
+    font-size: 1.05rem;
+  }
+
+  .media-arrow {
+    width: 38px;
+    height: 38px;
+    font-size: 1.4rem;
+  }
+
+  .media-thumb {
+    width: 100px;
+  }
+
+  .media-thumb img,
+  .media-thumb-video-icon {
+    height: 56px;
+  }
+}
+
+@media (max-width: 480px) {
+  .media-thumbnails {
+    gap: 8px;
+  }
+
+  .media-thumb {
+    width: 80px;
+    padding: 6px;
+  }
+
+  .media-thumb img,
+  .media-thumb-video-icon {
+    height: 44px;
+  }
+
+  .media-thumb-label {
+    font-size: 0.62rem;
+  }
+
+  .media-arrow-left {
+    left: 8px;
+  }
+
+  .media-arrow-right {
+    right: 8px;
   }
 }
