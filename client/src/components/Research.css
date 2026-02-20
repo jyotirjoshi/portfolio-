@@ -1,0 +1,66 @@
+.research-professional {
+  padding: 100px 20px;
+  background: var(--color-white);
+}
+
+.research-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.research-card {
+  text-align: center;
+}
+
+.research-icon {
+  font-size: 4rem;
+  margin-bottom: 20px;
+}
+
+.research-category {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-secondary);
+  padding: 6px 16px;
+  background: var(--color-light-gray);
+  border-radius: 50px;
+  margin-bottom: 15px;
+}
+
+.research-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin: 0 0 15px;
+}
+
+.research-description {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--color-text);
+  margin-bottom: 20px;
+}
+
+.research-achievements {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.achievement-tag {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  padding: 6px 12px;
+  background: rgba(212, 175, 55, 0.1);
+  border-radius: 6px;
+}
+
+@media (max-width: 1024px) {
+  .research-grid {
+    grid-template-columns: 1fr;
+  }
+}

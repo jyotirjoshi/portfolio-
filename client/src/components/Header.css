@@ -1,0 +1,143 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: var(--white);
+    z-index: 1000;
+    transition: var(--transition);
+    padding: 20px 0;
+  }
+  
+  .header.scrolled {
+    box-shadow: var(--shadow);
+    padding: 15px 0;
+  }
+  
+  .header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .logo h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    cursor: pointer;
+    font-family: 'Brush Script MT', cursive;
+  }
+  
+  .nav-desktop {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+  }
+  
+  .nav-link {
+    color: var(--text-dark);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: var(--transition);
+    position: relative;
+  }
+  
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--secondary-color);
+    transition: var(--transition);
+  }
+  
+  .nav-link:hover {
+    color: var(--secondary-color);
+  }
+  
+  .nav-link:hover::after {
+    width: 100%;
+  }
+  
+  .social-icons {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+  }
+  
+  .social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--bg-light);
+    color: var(--text-dark);
+    transition: var(--transition);
+    text-decoration: none;
+  }
+  
+  .social-icon:hover {
+    background: var(--secondary-color);
+    color: var(--white);
+    transform: translateY(-2px);
+  }
+  
+  .mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-dark);
+  }
+  
+  .nav-mobile {
+    display: none;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px 0;
+    border-top: 1px solid #e0e0e0;
+    margin-top: 20px;
+  }
+  
+  .nav-link-mobile {
+    color: var(--text-dark);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 10px 0;
+    transition: var(--transition);
+  }
+  
+  .nav-link-mobile:hover {
+    color: var(--secondary-color);
+    padding-left: 10px;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 992px) {
+    .nav-desktop {
+      display: none;
+    }
+  
+    .mobile-menu-btn {
+      display: block;
+    }
+  
+    .nav-mobile {
+      display: flex;
+    }
+  
+    .social-icons {
+      display: none;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .logo h2 {
+      font-size: 1.2rem;
+    }
+  }

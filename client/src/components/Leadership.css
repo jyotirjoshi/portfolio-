@@ -1,0 +1,54 @@
+.leadership-professional {
+  padding: 100px 20px;
+  background: var(--color-bg);
+}
+
+.leadership-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+.leadership-card {
+  text-align: center;
+}
+
+.leadership-icon {
+  font-size: 4rem;
+  margin-bottom: 20px;
+}
+
+.leadership-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin: 0 0 10px;
+}
+
+.leadership-org {
+  font-size: 0.95rem;
+  color: var(--color-text);
+  margin-bottom: 10px;
+}
+
+.leadership-period {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  padding: 4px 12px;
+  background: rgba(212, 175, 55, 0.1);
+  border-radius: 50px;
+}
+
+@media (max-width: 1024px) {
+  .leadership-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .leadership-grid {
+    grid-template-columns: 1fr;
+  }
+}
