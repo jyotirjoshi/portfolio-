@@ -12,31 +12,24 @@ const slides = [
   },
   {
     type: 'photo',
-    src: '/assets/achievement-leadership.png',
+    src: 'https://images.bhaskarassets.com/webp/thumb/512x0/web2images/960/2025/03/03/whatsapp-image-2025-03-03-at-15723-pm_1741004595.jpeg',
     outlet: 'Divya Bhaskar',
     title: 'Youngest SOUL Leader',
-    date: 'Feb 2025',
-  },
-  {
-    type: 'photo',
-    src: '/assets/achievement-award.png',
-    outlet: 'Gujarat Samachar',
-    title: 'Leadership Recognition',
-    date: 'Feb 2025',
-  },
-  {
-    type: 'photo',
-    src: '/assets/achievement-research.png',
-    outlet: 'Ahmedabad Mirror',
-    title: 'Student Achievement',
     date: 'Mar 2025',
   },
   {
     type: 'photo',
-    src: '/assets/achievement-math.png',
-    outlet: 'Punjab Kesari',
-    title: 'Meeting PM Modi',
-    date: 'Feb 2025',
+    src: 'https://media.licdn.com/dms/image/v2/D5622AQGr-0Vfr3_u0A/feedshare-shrink_800/B56ZWAVdKTHoAo-/0/1741614865658?e=1773273600&v=beta&t=uTIXr9iD0l-xfzGvVHbTW5vEhV3yLAEOonOi6zwLV5E',
+    outlet: 'LinkedIn',
+    title: 'Leadership Recognition',
+    date: 'Mar 2025',
+  },
+  {
+    type: 'photo',
+    src: 'https://media.licdn.com/dms/image/v2/D5622AQGzIXeB_DoOqQ/feedshare-shrink_2048_1536/B56ZwaVjAzHQAk-/0/1769968382213?e=1773273600&v=beta&t=hhLKHgjlw0gRMQl6q6FB9ST9zuJXp1gIkY28xUNBVK0',
+    outlet: 'LinkedIn',
+    title: 'IRIS National Science Fair',
+    date: 'Feb 2026',
   },
 ];
 
